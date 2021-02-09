@@ -1,7 +1,7 @@
 # ref: https://registry.terraform.io/modules/Terraform-VMWare-Modules/vm/vsphere/latest
 # Deploy 2 linux VMs
 module "server-nginx" {
-  source        = "Terraform-VMWare-Modules/vm/vsphere"
+  source        = "./modules/infra-vmware"
   vmtemp        = "VM Template Name (Should Alrerady exist)"
   instances     = 2
   vmname        = "example-server-linux"

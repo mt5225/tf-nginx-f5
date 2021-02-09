@@ -57,14 +57,14 @@ resource "null_resource" "configure_lb" {
   count = length(var.server_ips)
 
   triggers = {
-    template = "${data.template_file.nginx_conf.rendered}"
+    template = data.template_file.nginx_conf.rendered
   }
 
   # provide some connection info
   connection {
     type        = "ssh"
     user        = "root"
-    private_key = "${file(var.ssh_private_key)}"
+    private_key = file(var.ssh_private_key)
     host        = element(var.server_ips, count.index)
   }
 

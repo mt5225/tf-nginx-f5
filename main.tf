@@ -13,17 +13,21 @@ module "server-nginx" {
   dc        = "Datacenter"
   datastore = "Data Store name(use ds_cluster for datastore cluster)"
 }
+
+
 data "local_file" "pk" {
     filename = "./assets/id.rsa"
 }
 
+# install nginx
 module "nginx" {
    source = "./modules/app-nginx"
    server_ips = module.server-nginx.Linux-ip
    ssh_private_key = pk.content 
 }
 
-module "f5" {
+# config F5
+module "f5-config" {
   source = "./modules/infra-f5" 
   server_ips = module.server-nginx.Linux-ip
   policy_name = "nginx-demo"

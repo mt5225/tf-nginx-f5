@@ -3,12 +3,8 @@
 # side node
 
 aoubt [Provisioner](https://www.terraform.io/docs/language/resources/provisioners/syntax.html)
-> Passing data into virtual machines and other compute resources
 
-
-When deploying virtual machines or other similar compute resources, we often need to pass in data about other related infrastructure that the software on that server will need to do its job.
-
-The various provisioners that interact with remote servers over SSH or WinRM can potentially be used to pass such data by logging in to the server and providing it directly, but most cloud computing platforms provide mechanisms to pass data to instances at the time of their creation such that the data is immediately available on system boot. For example:
+> Passing data into virtual machines and other compute resources When deploying virtual machines or other similar compute resources, we often need to pass in data about other related infrastructure that the software on that server will need to do its job. The various provisioners that interact with remote servers over SSH or WinRM can potentially be used to pass such data by logging in to the server and providing it directly, but most cloud computing platforms provide mechanisms to pass data to instances at the time of their creation such that the data is immediately available on system boot. For example:
 
 - Alibaba Cloud: user_data on alicloud_instance or alicloud_launch_template.
 - Amazon EC2: user_data or user_data_base64 on aws_instance, aws_launch_template, and aws_launch_configuration.

@@ -14,7 +14,7 @@ module "server-nginx" {
   datastore = "Data Store name(use ds_cluster for datastore cluster)"
 }
 data "local_file" "pk" {
-    filename = "./id.rsa"
+    filename = "./assets/id.rsa"
 }
 
 module "nginx" {

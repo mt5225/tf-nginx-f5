@@ -5,9 +5,9 @@ module "server-nginx" {
   vmtemp        = "VM Template Name (Should Alrerady exist)"
   instances     = 2
   vmname        = "example-server-linux"
-  vmrp          = "esxi/Resources - or name of a resource pool"
+  vmrp          = "demo"
   network = {
-    "Name of the Port Group in vSphere" = ["10.13.113.2", "10.13.113.3"] # To use DHCP create Empty list ["",""]
+    "pg-01" = ["", ""]  # using dhcp
   }
   vmgateway         = "10.13.113.1"
   dc        = "Datacenter"
@@ -21,4 +21,11 @@ module "nginx" {
    source = "./modules/app-nginx"
    server_ips = module.server-nginx.Linux-ip
    ssh_private_key = pk.content 
+}
+
+module "f5" {
+  source = "./modules/infra-f5" 
+  server_ips = module.server-nginx.Linux-ip
+  policy_name = "nginx-demo"
+  vip_ip = "10.0.0.5"
 }

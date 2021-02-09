@@ -13,7 +13,7 @@ variable "policy_name" {
   description = "policy name"
 }
 
-variable "vip_id" {
+variable "vip_ip" {
   type = string
   description = "vip" 
 }

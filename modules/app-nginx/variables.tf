@@ -1,9 +1,9 @@
 variable "server_ips" {
   type = list
-  descriptdescription = "list of server ips" 
+  description = "list of server ips" 
 }
 
 variable "ssh_private_key" {
  type = string
- desdescription = "ssh private key" 
+ description = "ssh private key" 
 }

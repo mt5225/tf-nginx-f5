@@ -48,8 +48,8 @@ stream {
 EOF
 
 vars {
-    servers      = "${join("\n        ",  data.template_file.nginx_server_node.*.rendered)}"
-    servers_http = "${join("\n        ", data.template_file.nginx_server_node_http.*.rendered)}"
+    servers      = join("\n        ",  data.template_file.nginx_server_node.*.rendered)
+    servers_http = join("\n        ", data.template_file.nginx_server_node_http.*.rendered)
   }
 }
 

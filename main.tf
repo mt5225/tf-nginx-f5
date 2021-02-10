@@ -3,7 +3,7 @@
 module "server-nginx" {
   source        = "./modules/infra-vmware"
   vmtemp        = "VM Template Name (Should Alrerady exist)"
-  instances     = 2
+  instances     = var.num 
   vmname        = "example-server-linux"
   vmrp          = "demo"
   network = {
@@ -11,7 +11,7 @@ module "server-nginx" {
   }
   vmgateway         = "10.13.113.1"
   dc        = "Datacenter"
-  datastore = "Data Store name(use ds_cluster for datastore cluster)"
+  datastore = "ds01"
 }
 
 

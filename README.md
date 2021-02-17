@@ -1,4 +1,16 @@
 # tf-nginx-f5
+# commands
+
+## init
+```
+terraform init
+```
+
+## plan
+```
+terraform plan -var-file ./env/dev.tfvars
+```
+
 
 # side node
 

@@ -23,7 +23,7 @@ resource "bigip_ltm_policy" "this" {
   controls       = ["forwarding"]
   rule {
     name = "rule6"
-    action = {
+    action {
       tm_name = "20"
       forward = true
       pool    = "/Common/mypool"
